@@ -105,22 +105,6 @@ func ResourceIndex() *schema.Resource {
 	}
 }
 
-func encodeTerms(terms []any) []map[string]f.ObjectV {
-	return []map[string]f.ObjectV{}
-}
-
-func decodeTerms(terms []map[string]f.ObjectV) []any {
-	return []any{}
-}
-
-func encodeValues(values []any) []map[string]f.ObjectV {
-	return []map[string]f.ObjectV{}
-}
-
-func decodeValues(values []map[string]f.ObjectV) []any {
-	return []any{}
-}
-
 func synchroniseIndexResourceData(res f.Value, data *schema.ResourceData) error {
 	var obj f.ObjectV
 	if err := res.Get(&obj); err != nil {
@@ -142,12 +126,12 @@ func synchroniseIndexResourceData(res f.Value, data *schema.ResourceData) error 
 		data.Set("source", source_.ID)
 	}
 
-	if terms, ok := GetProperty(obj, "terms", []map[string]f.ObjectV{}); ok {
-		data.Set("terms", decodeTerms(terms))
+	if terms, ok := GetProperty(obj, "terms", []map[string]any{}); ok {
+		data.Set("terms", terms)
 	}
 
-	if values, ok := GetProperty(obj, "values", []map[string]f.ObjectV{}); ok {
-		data.Set("values", decodeValues(values))
+	if values, ok := GetProperty(obj, "values", []map[string]any{}); ok {
+		data.Set("values", values)
 	}
 
 	if unique, ok := GetProperty(obj, "unique", false); ok {
@@ -183,8 +167,8 @@ func resourceIndexCreate(ctx context.Context, data *schema.ResourceData, meta an
 		"name":       name,
 		"data":       data.Get("data"),
 		"source":     f.Collection(data.Get("source")),
-		"terms":      encodeTerms(data.Get("terms").([]any)),
-		"values":     encodeValues(data.Get("values").([]any)),
+		"terms":      data.Get("terms"),
+		"values":     data.Get("values"),
 		"unique":     data.Get("unique"),
 		"serialized": data.Get("serialized"),
 		"ttl":        data.Get("ttl"),
@@ -217,7 +201,7 @@ func resourceIndexRead(ctx context.Context, data *schema.ResourceData, meta any)
 	return diags
 }
 
-var indexPropertiesToCheck = []string{"name", "data", "unique", "serialized", "ttl", "ts"}
+var indexPropertiesToCheck = []string{"name", "data", "terms", "values", "unique", "serialized", "ttl", "ts"}
 
 func resourceIndexUpdate(ctx context.Context, data *schema.ResourceData, meta any) diag.Diagnostics {
 	conn := meta.(*f.FaunaClient)

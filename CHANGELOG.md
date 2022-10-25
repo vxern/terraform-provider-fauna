@@ -1,3 +1,11 @@
+# 0.1.1
+
+FIXES:
+
+- Handle missing properties to `fauna_index` resource:
+  - `terms`
+  - `values`
+
 # 0.1.0
 
 FEATURES:

@@ -27,6 +27,11 @@ func TestAccIndex(t *testing.T) {
 				Config: testAccIndexConfiguration(rColName, rIndexName),
 				Check: resource.ComposeTestCheckFunc(
 					testAccCheckIndexExists("fauna_index.index"),
+					resource.TestCheckResourceAttr("fauna_index.index", "terms.0.field.1", "sample_property"),
+					resource.TestCheckResourceAttr("fauna_index.index", "terms.1.field.1", "different_sample_property"),
+					resource.TestCheckResourceAttr("fauna_index.index", "values.0.field.1", "sample_property"),
+					resource.TestCheckResourceAttr("fauna_index.index", "values.1.field.1", "different_sample_property"),
+					resource.TestCheckResourceAttr("fauna_index.index", "serialized", "true"),
 				),
 			},
 			{
@@ -54,6 +59,18 @@ resource "fauna_index" "index" {
 
 	name   = "%[2]s"
 	source = "%[1]s"
+	terms {
+		field = ["data", "sample_property"]
+	}
+	terms {
+		field = ["data", "different_sample_property"]
+	}
+	values {
+		field = ["data", "sample_property"]
+	}
+	values {
+		field = ["data", "different_sample_property"]
+	}
 }
 `, rColName, rIndexName)
 }
@@ -69,6 +86,18 @@ resource "fauna_index" "index" {
 
 	name   = "%[2]s"
 	source = "%[1]s"
+	terms {
+		field = ["data", "sample_property"]
+	}
+	terms {
+		field = ["data", "different_sample_property"]
+	}
+	values {
+		field = ["data", "sample_property"]
+	}
+	values {
+		field = ["data", "different_sample_property"]
+	}
 	unique = true
 	serialized = true
 	ttl = 7
