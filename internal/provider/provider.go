@@ -7,6 +7,8 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 
 	f "github.com/fauna/faunadb-go/v5/faunadb"
+
+	resources "github.com/linguition/terraform-provider-fauna/internal/provider/resources"
 )
 
 func init() {
@@ -26,6 +28,9 @@ func Provider() *schema.Provider {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
+		},
+		ResourcesMap: map[string]*schema.Resource{
+			"fauna_collection": resources.ResourceCollection(),
 		},
 	}
 
