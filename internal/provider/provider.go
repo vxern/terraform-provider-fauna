@@ -32,6 +32,7 @@ func Provider() *schema.Provider {
 		ResourcesMap: map[string]*schema.Resource{
 			"fauna_collection": resources.ResourceCollection(),
 			"fauna_database":   resources.ResourceDatabase(),
+			"fauna_function":   resources.ResourceFunction(),
 			"fauna_index":      resources.ResourceIndex(),
 		},
 	}
