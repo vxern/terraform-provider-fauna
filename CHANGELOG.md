@@ -5,3 +5,4 @@ FEATURES:
 - Created provider.
 - Created resources:
   - `fauna_collection` (Collection)
+  - `fauna_index` (Index)

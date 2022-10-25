@@ -31,6 +31,7 @@ func Provider() *schema.Provider {
 		},
 		ResourcesMap: map[string]*schema.Resource{
 			"fauna_collection": resources.ResourceCollection(),
+			"fauna_index":      resources.ResourceIndex(),
 		},
 	}
 
