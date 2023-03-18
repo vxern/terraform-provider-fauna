@@ -6,7 +6,7 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 
-	"github.com/linguition/terraform-provider-fauna/internal/provider"
+	"github.com/wordcollector/terraform-provider-fauna/internal/provider"
 )
 
 var TestAccProviders map[string]*schema.Provider

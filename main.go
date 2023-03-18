@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
 
-	"github.com/linguition/terraform-provider-fauna/internal/provider"
+	"github.com/wordcollector/terraform-provider-fauna/internal/provider"
 )
 
 // Generate the Terraform provider documentation using `tfplugindocs`:

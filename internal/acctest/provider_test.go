@@ -3,7 +3,7 @@ package acctest_test
 import (
 	"testing"
 
-	"github.com/linguition/terraform-provider-fauna/internal/acctest"
+	"github.com/wordcollector/terraform-provider-fauna/internal/acctest"
 )
 
 func TestProvider(t *testing.T) {

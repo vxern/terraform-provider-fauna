@@ -1,3 +1,10 @@
+# 0.1.1+1
+
+CHANGES:
+
+- Vendor `linguition` -> `wordcollector`.
+- Update dependencies.
+
 # 0.1.1
 
 FIXES:

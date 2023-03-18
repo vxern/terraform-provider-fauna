@@ -8,7 +8,7 @@ import (
 
 	f "github.com/fauna/faunadb-go/v5/faunadb"
 
-	resources "github.com/linguition/terraform-provider-fauna/internal/provider/resources"
+	resources "github.com/wordcollector/terraform-provider-fauna/internal/provider/resources"
 )
 
 func init() {

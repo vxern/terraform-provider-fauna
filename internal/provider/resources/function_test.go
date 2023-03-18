@@ -11,7 +11,7 @@ import (
 
 	f "github.com/fauna/faunadb-go/v5/faunadb"
 
-	acctest "github.com/linguition/terraform-provider-fauna/internal/acctest"
+	acctest "github.com/wordcollector/terraform-provider-fauna/internal/acctest"
 )
 
 func TestAccFunction(t *testing.T) {

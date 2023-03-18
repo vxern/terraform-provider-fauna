@@ -6,6 +6,6 @@
 # Terraform Fauna Provider
 
 The
-[Fauna provider](https://registry.terraform.io/providers/linguition/fauna/latest/docs)
+[Fauna provider](https://registry.terraform.io/providers/wordcollector/fauna/latest/docs)
 allows [Terraform](https://terraform.io) to manage [Fauna](https://fauna.com)
 databases and their resources.
