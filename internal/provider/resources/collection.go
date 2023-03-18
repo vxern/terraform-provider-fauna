@@ -75,11 +75,11 @@ func synchroniseCollectionResourceData(res f.Value, data *schema.ResourceData) e
 		data.Set("history_days", historyDays)
 	}
 
-	if ttl, ok := GetProperty(obj, "ttl", 0); ok {
+	if ttl, ok := GetProperty[any](obj, "ttl", nil); ok {
 		data.Set("ttl", ttl)
 	}
 
-	if ttlDays, ok := GetProperty(obj, "ttl_days", 0); ok {
+	if ttlDays, ok := GetProperty[any](obj, "ttl_days", nil); ok {
 		data.Set("ttl_days", ttlDays)
 	}
 

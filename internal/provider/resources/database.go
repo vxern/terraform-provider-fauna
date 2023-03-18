@@ -64,7 +64,7 @@ func synchroniseDatabaseResourceData(res f.Value, data *schema.ResourceData) err
 		data.Set("data", data_)
 	}
 
-	if ttl, ok := GetProperty(obj, "ttl", 0); ok {
+	if ttl, ok := GetProperty[any](obj, "ttl", nil); ok {
 		data.Set("ttl", ttl)
 	}
 

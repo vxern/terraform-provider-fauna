@@ -1,3 +1,9 @@
+# 0.1.2
+
+FIXES:
+
+- The default value of `ttl` and `ttl_days` is now `nil` rather than `0`.
+
 # 0.1.1+1
 
 CHANGES:

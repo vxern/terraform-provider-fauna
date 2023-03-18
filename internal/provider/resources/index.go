@@ -142,7 +142,7 @@ func synchroniseIndexResourceData(res f.Value, data *schema.ResourceData) error 
 		data.Set("serialized", serialized)
 	}
 
-	if ttl, ok := GetProperty(obj, "ttl", 0); ok {
+	if ttl, ok := GetProperty[any](obj, "ttl", nil); ok {
 		data.Set("ttl", ttl)
 	}
 
